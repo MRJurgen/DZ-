@@ -32,21 +32,6 @@ int[,] ArraySpiral ()
         layer++;
     }
 
-    // for (int i = 0; i < arr.GetLength(0); i++)
-    //     {
-    //         for (int j = 0; j < arr.GetLength(1); j++)
-    //         {
-    //             if(i==0)
-    //             {
-    //                 arr[i,j]= ("0"+ $"{j+1}");
-    //             }
-    //             if(i==1&&j<2)
-    //             {
-    //                 arr[i,j]= ("0"+ $"{j+1}");
-    //             }
-    //         }
-    //     }
-
     return arr;
 }
 
