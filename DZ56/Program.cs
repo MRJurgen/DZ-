@@ -1,10 +1,11 @@
 ﻿
 
-int[,] FillRandomArr()
+
+int[,] FillRandomRectangularArr()
 {
     Random rrr = new Random();
     int lengI = rrr.Next(3, 8);
-    int lengJ = rrr.Next(3, 8);
+    int lengJ = lengI - rrr.Next(1, lengI-1);
 
     int[,] arr = new int[lengI, lengJ];
     for (int i = 0; i < arr.GetLength(0); i++)
@@ -17,26 +18,19 @@ int[,] FillRandomArr()
     return arr;
 }
 
-void PrintSortArr(int[,] arr)
+void PrintMinLine(int[,] arr)
 {
-    int [,] NewArr = new int [arr.GetLength(0),arr.GetLength(1)];
+    int [] mins = new int[arr.GetLength(0)];
     for (int i = 0; i < arr.GetLength(0); i++)
     {
-        int[] arr2 = new int [arr.GetLength(1)];
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            arr2[j] = arr[i,j];
+            mins[i]+=arr[i,j];
         }
-        Array.Sort(arr2);
-        Array.Reverse(arr2);
-        for (int z = 0; z < arr2.Length; z++)
-        {
-            Console.Write($"{arr2[z],3}");
-        }
-        Console.WriteLine();
-
     }
-    
+
+    Console.WriteLine((Array.IndexOf(mins,mins.Min())+1)+" строка");    
+
 }
 
 void PrintArr(int[,] ar)
@@ -51,7 +45,6 @@ void PrintArr(int[,] ar)
     }
 }
 
-int[,] OurArr =FillRandomArr();
+int[,] OurArr =FillRandomRectangularArr();
 PrintArr(OurArr);
-Console.WriteLine();
-PrintSortArr(OurArr);
+PrintMinLine(OurArr);
